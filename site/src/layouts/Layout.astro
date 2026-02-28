@@ -1,0 +1,85 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Just Months",
+  description = "A macOS calendar widget. It's just cal. But yours.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <style>
+      :root {
+        --bg: #0a0e2a;
+        --gradient: #070a1d;
+        --text: #e0efff;
+        --coral: #ff4a3d;
+        --dim: #1c284a;
+        --light-bg: #e0efff;
+        --font: "SF Mono", "Menlo", "Courier New", Courier, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font);
+        font-size: 14px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--bg);
+        background: var(--text);
+      }
+
+      ::selection {
+        background: var(--text);
+        color: var(--bg);
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #e0efff;
+          --text: #0a0e2a;
+          --dim: #1c284a;
+        }
+
+        html {
+          background: var(--bg);
+          color: var(--text);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

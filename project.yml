@@ -1,0 +1,85 @@
+name: JustMonths
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  bundleIdPrefix: com.justmonths
+
+configs:
+  Debug: debug
+  Release: release
+  LocalRelease: release
+
+packages:
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    minorVersion: "2.6.0"
+
+targets:
+  JustMonths:
+    type: application
+    platform: macOS
+    sources:
+      - JustMonths/
+      - Shared/
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.justmonths.app
+        SWIFT_VERSION: "5.0"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ENABLE_HARDENED_RUNTIME: YES
+      configs:
+        Release:
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+        LocalRelease:
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+          CODE_SIGN_ENTITLEMENTS: JustMonths/JustMonthsLocalRelease.entitlements
+    entitlements:
+      path: JustMonths/JustMonths.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+    info:
+      path: JustMonths/Info.plist
+      properties:
+        CFBundleName: JustMonths
+        CFBundleDisplayName: Just Months
+        LSMinimumSystemVersion: "14.0"
+        NSPrincipalClass: NSApplication
+        NSHighResolutionCapable: true
+        SUFeedURL: "https://justmonths.app/appcast.xml"
+        SUPublicEDKey: "PLACEHOLDER_REPLACE_AT_FIRST_RELEASE"
+    dependencies:
+      - target: JustMonthsWidget
+        embed: true
+        codeSign: true
+      - package: Sparkle
+
+  JustMonthsWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - JustMonthsWidget/
+      - Shared/
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.justmonths.app.widget
+        SWIFT_VERSION: "5.0"
+        APPLICATION_EXTENSION_API_ONLY: true
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+    entitlements:
+      path: JustMonthsWidget/JustMonthsWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    info:
+      path: JustMonthsWidget/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

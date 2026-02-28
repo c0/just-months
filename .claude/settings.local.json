@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(swift:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(xcrun:*)",
+      "Bash(grep:*)",
+      "Bash(swiftc:*)",
+      "Bash(clang:*)",
+      "Bash(xcodegen:*)",
+      "Bash(find /Users/czero/src/just-months -name Assets.xcassets -o -name *.xcassets)",
+      "Bash(SRC=/Users/czero/src/just-months/app-icon.png)",
+      "Bash(sips -z 16 16 \"$SRC\" --out icon_16x16.png)",
+      "Bash(sips -z 32 32 \"$SRC\" --out icon_16x16@2x.png)",
+      "Bash(sips -z 32 32 \"$SRC\" --out icon_32x32.png)",
+      "Bash(sips -z 64 64 \"$SRC\" --out icon_32x32@2x.png)",
+      "Bash(make generate:*)",
+      "Bash(make build:*)",
+      "Bash(git:*)",
+      "Bash(sips:*)",
+      "Bash(for f:*)",
+      "Bash(do sips:*)",
+      "Read(//Users/czero/src/just-months/JustMonths/Assets.xcassets/AppIcon.appiconset/**)",
+      "Bash(done)",
+      "Bash(chmod:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(open:*)",
+      "Bash(make:*)"
+    ]
+  }
+}
