@@ -1,0 +1,93 @@
+import WidgetKit
+import SwiftUI
+
+// MARK: - Timeline Entry
+
+struct CalendarEntry: TimelineEntry {
+    let date: Date
+}
+
+// MARK: - Timeline Provider
+
+struct Provider: TimelineProvider {
+    func placeholder(in context: Context) -> CalendarEntry {
+        CalendarEntry(date: Date())
+    }
+
+    func getSnapshot(in context: Context, completion: @escaping (CalendarEntry) -> Void) {
+        completion(CalendarEntry(date: Date()))
+    }
+
+    func getTimeline(in context: Context, completion: @escaping (Timeline<CalendarEntry>) -> Void) {
+        let entry = CalendarEntry(date: Date())
+        let midnight = Calendar.current.nextDate(
+            after: Date(),
+            matching: DateComponents(hour: 0),
+            matchingPolicy: .nextTime
+        )!
+        completion(Timeline(entries: [entry], policy: .after(midnight)))
+    }
+}
+
+// MARK: - Widget View
+
+struct BigCalendarView: View {
+    let entry: CalendarEntry
+    @Environment(\.widgetFamily) var family
+
+    var monthCount: Int {
+        switch family {
+        case .systemExtraLarge: return 6
+        default: return 3
+        }
+    }
+
+    var columns: Int { 3 }
+    var rows: Int { monthCount / columns }
+
+    var today: Date { entry.date }
+
+    var monthsToShow: [Date] {
+        let lookback = Calendar.current.date(byAdding: .day, value: -14, to: today)!
+        let startMonth = Calendar.current.date(
+            from: Calendar.current.dateComponents([.year, .month], from: lookback)
+        )!
+        return (0..<monthCount).compactMap {
+            Calendar.current.date(byAdding: .month, value: $0, to: startMonth)
+        }
+    }
+
+    var body: some View {
+        VStack(spacing: 12) {
+            ForEach(0..<rows, id: \.self) { row in
+                HStack(spacing: 16) {
+                    ForEach(0..<columns, id: \.self) { col in
+                        let index = row * columns + col
+                        if index < monthsToShow.count {
+                            MonthView(month: monthsToShow[index], today: today)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                }
+            }
+        }
+        .padding(16)
+        .containerBackground(.fill.tertiary, for: .widget)
+    }
+}
+
+// MARK: - Widget Configuration
+
+@main
+struct BigCalendarWidget: Widget {
+    let kind = "BigCalendarWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            BigCalendarView(entry: entry)
+        }
+        .configurationDisplayName("Big Calendar")
+        .description("Multi-month calendar. No clutter.")
+        .supportedFamilies([.systemLarge, .systemExtraLarge])
+    }
+}

@@ -1,0 +1,48 @@
+name: BigCalendar
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  bundleIdPrefix: com.bigcalendar
+
+targets:
+  BigCalendar:
+    type: application
+    platform: macOS
+    sources:
+      - BigCalendar/
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app
+        SWIFT_VERSION: "6.0"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: BigCalendar/Info.plist
+      properties:
+        CFBundleName: BigCalendar
+        CFBundleDisplayName: Big Calendar
+        LSMinimumSystemVersion: "14.0"
+        NSPrincipalClass: NSApplication
+        NSHighResolutionCapable: true
+    dependencies:
+      - target: BigCalendarWidget
+        embed: true
+        codeSign: true
+
+  BigCalendarWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - BigCalendarWidget/
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app.widget
+        SWIFT_VERSION: "6.0"
+        APPLICATION_EXTENSION_API_ONLY: true
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    info:
+      path: BigCalendarWidget/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

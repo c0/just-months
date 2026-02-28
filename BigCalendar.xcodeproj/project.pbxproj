@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C5B792BD32F2ADB09F89625 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 515DCF8902FC4B97632440A6 /* Assets.xcassets */; };
+		7C05B7E3BCD2CD63F720B0CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D90E51BD9EE75F9B4C0941A /* SwiftUI.framework */; };
+		85C45587334D5614E5B8C52D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2EF012CE0DAA51F1899223 /* WidgetKit.framework */; };
+		8641847D1F5A607122754223 /* BigCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB61B363C519034E8421BDA /* BigCalendarApp.swift */; };
+		C5850BBA2BF8CE33E4482FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF9CD7C5F0FE2AC1F289625 /* Assets.xcassets */; };
+		C68B0ED12FBD905667B2C420 /* BigCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F54C43EEBE7CE357533EF4 /* BigCalendarWidget.swift */; };
+		D32C3CE52994485C6DF70283 /* BigCalendarWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1C1CB22B33744EAF28CEB9D /* BigCalendarWidget.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D53C6F1EB31F1A111FA75D65 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6E147D2F63B7262A5D4C /* MonthView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7174ED55D9D25FD098619D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C389AD2B7AA738007629766 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5977558390CC2CB32B861E1;
+			remoteInfo = BigCalendarWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		413E5C55C33EAA0638F59F34 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D32C3CE52994485C6DF70283 /* BigCalendarWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18B732E091A26B933FEC25F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2A2EF012CE0DAA51F1899223 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2E6A6E147D2F63B7262A5D4C /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		3D90E51BD9EE75F9B4C0941A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		515DCF8902FC4B97632440A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		58FD0E9A272DDB572498818F /* BigCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B5E139BB032D7B2E641F046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A1C1CB22B33744EAF28CEB9D /* BigCalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BigCalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF9CD7C5F0FE2AC1F289625 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5F54C43EEBE7CE357533EF4 /* BigCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCalendarWidget.swift; sourceTree = "<group>"; };
+		ECB61B363C519034E8421BDA /* BigCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCalendarApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6251739DA12AFF81E44DC3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85C45587334D5614E5B8C52D /* WidgetKit.framework in Frameworks */,
+				7C05B7E3BCD2CD63F720B0CC /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B1B0FDBD8A1DDAF55E437F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58FD0E9A272DDB572498818F /* BigCalendar.app */,
+				A1C1CB22B33744EAF28CEB9D /* BigCalendarWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C86EB882F72CEF9BB8C2316E /* BigCalendarWidget */ = {
+			isa = PBXGroup;
+			children = (
+				515DCF8902FC4B97632440A6 /* Assets.xcassets */,
+				D5F54C43EEBE7CE357533EF4 /* BigCalendarWidget.swift */,
+				18B732E091A26B933FEC25F1 /* Info.plist */,
+				2E6A6E147D2F63B7262A5D4C /* MonthView.swift */,
+			);
+			path = BigCalendarWidget;
+			sourceTree = "<group>";
+		};
+		E1410D2CCF41F68F8EFEEF20 = {
+			isa = PBXGroup;
+			children = (
+				FEB3363588F1C92F57E8A81A /* BigCalendar */,
+				C86EB882F72CEF9BB8C2316E /* BigCalendarWidget */,
+				E9C27EE7EB44810A53588F9D /* Frameworks */,
+				2B1B0FDBD8A1DDAF55E437F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9C27EE7EB44810A53588F9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D90E51BD9EE75F9B4C0941A /* SwiftUI.framework */,
+				2A2EF012CE0DAA51F1899223 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEB3363588F1C92F57E8A81A /* BigCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9CD7C5F0FE2AC1F289625 /* Assets.xcassets */,
+				ECB61B363C519034E8421BDA /* BigCalendarApp.swift */,
+				5B5E139BB032D7B2E641F046 /* Info.plist */,
+			);
+			path = BigCalendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82B68CE7AB63F3FB071912C3 /* BigCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FC5BC0A93903D7AC6984478 /* Build configuration list for PBXNativeTarget "BigCalendar" */;
+			buildPhases = (
+				25DF0A96E509C8F385122DD4 /* Sources */,
+				C854161B84CD2A2F0DF13A4E /* Resources */,
+				413E5C55C33EAA0638F59F34 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				022EDE31C196A854F14E6863 /* PBXTargetDependency */,
+			);
+			name = BigCalendar;
+			packageProductDependencies = (
+			);
+			productName = BigCalendar;
+			productReference = 58FD0E9A272DDB572498818F /* BigCalendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5977558390CC2CB32B861E1 /* BigCalendarWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0271944B418D2D8AC61D34F /* Build configuration list for PBXNativeTarget "BigCalendarWidget" */;
+			buildPhases = (
+				6569CB092F07B79B5E8AFFD6 /* Sources */,
+				4F0CB47E6FD33AB46B80640A /* Resources */,
+				F6251739DA12AFF81E44DC3A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BigCalendarWidget;
+			packageProductDependencies = (
+			);
+			productName = BigCalendarWidget;
+			productReference = A1C1CB22B33744EAF28CEB9D /* BigCalendarWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C389AD2B7AA738007629766 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = BBED80CCD9DF64E189A1B9B3 /* Build configuration list for PBXProject "BigCalendar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E1410D2CCF41F68F8EFEEF20;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82B68CE7AB63F3FB071912C3 /* BigCalendar */,
+				A5977558390CC2CB32B861E1 /* BigCalendarWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F0CB47E6FD33AB46B80640A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C5B792BD32F2ADB09F89625 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C854161B84CD2A2F0DF13A4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5850BBA2BF8CE33E4482FEC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25DF0A96E509C8F385122DD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8641847D1F5A607122754223 /* BigCalendarApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6569CB092F07B79B5E8AFFD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C68B0ED12FBD905667B2C420 /* BigCalendarWidget.swift in Sources */,
+				D53C6F1EB31F1A111FA75D65 /* MonthView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		022EDE31C196A854F14E6863 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5977558390CC2CB32B861E1 /* BigCalendarWidget */;
+			targetProxy = C7174ED55D9D25FD098619D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		82014EFFD5AD8C1529237AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8D4DF68C065319D984E42178 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigcalendar.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		BA9F5BD4F91E25E8F21D2206 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigcalendar.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		C8D87B76277D48CE97E633A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D2C1677C67C6EA431F55FB51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigCalendarWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigcalendar.app.widget;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		F8DDB138AD99B4EF27183415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigCalendarWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigcalendar.app.widget;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FC5BC0A93903D7AC6984478 /* Build configuration list for PBXNativeTarget "BigCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA9F5BD4F91E25E8F21D2206 /* Debug */,
+				8D4DF68C065319D984E42178 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BBED80CCD9DF64E189A1B9B3 /* Build configuration list for PBXProject "BigCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82014EFFD5AD8C1529237AD7 /* Debug */,
+				C8D87B76277D48CE97E633A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D0271944B418D2D8AC61D34F /* Build configuration list for PBXNativeTarget "BigCalendarWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C1677C67C6EA431F55FB51 /* Debug */,
+				F8DDB138AD99B4EF27183415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C389AD2B7AA738007629766 /* Project object */;
+}
