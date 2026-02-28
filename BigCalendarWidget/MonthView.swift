@@ -43,9 +43,10 @@ struct MonthView: View {
                 .foregroundStyle(.secondary)
 
             // Day-of-week headers: S M T W T F S
+            let dayLabels = ["S", "M", "T", "W", "T", "F", "S"]
             HStack(spacing: 0) {
-                ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { d in
-                    Text(d)
+                ForEach(dayLabels.indices, id: \.self) { i in
+                    Text(dayLabels[i])
                         .font(.system(size: 9))
                         .foregroundStyle(.tertiary)
                         .frame(maxWidth: .infinity)

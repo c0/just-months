@@ -10,15 +10,15 @@ struct CalendarEntry: TimelineEntry {
 // MARK: - Timeline Provider
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> CalendarEntry {
+    nonisolated func placeholder(in context: Context) -> CalendarEntry {
         CalendarEntry(date: Date())
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (CalendarEntry) -> Void) {
+    nonisolated func getSnapshot(in context: Context, completion: @escaping (CalendarEntry) -> Void) {
         completion(CalendarEntry(date: Date()))
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<CalendarEntry>) -> Void) {
+    nonisolated func getTimeline(in context: Context, completion: @escaping (Timeline<CalendarEntry>) -> Void) {
         let entry = CalendarEntry(date: Date())
         let midnight = Calendar.current.nextDate(
             after: Date(),
