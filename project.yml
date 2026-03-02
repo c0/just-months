@@ -10,6 +10,7 @@ targets:
     platform: macOS
     sources:
       - BigCalendar/
+      - Shared/
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app
@@ -42,6 +43,7 @@ targets:
     platform: macOS
     sources:
       - BigCalendarWidget/
+      - Shared/
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app.widget
@@ -60,3 +62,24 @@ targets:
       properties:
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+  BigCalendarTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - BigCalendarTests/
+      - Shared/
+    settings:
+      base:
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  BigCalendarTests:
+    build:
+      targets:
+        BigCalendarTests: [test]
+    test:
+      targets:
+        - BigCalendarTests

@@ -54,19 +54,11 @@ struct BigCalendarView: View {
     var today: Date { entry.date }
 
     var monthsToShow: [Date] {
-        let start: Date
-        switch family {
-        case .systemExtraLarge:
-            let lookback = Calendar.current.date(byAdding: .day, value: -14, to: today)!
-            start = Calendar.current.date(
-                from: Calendar.current.dateComponents([.year, .month], from: lookback))!
-        default:
-            start = Calendar.current.date(
-                from: Calendar.current.dateComponents([.year, .month], from: today))!
-        }
-        return (0..<monthCount).compactMap {
-            Calendar.current.date(byAdding: .month, value: $0, to: start)
-        }
+        CalendarLogic.monthsToShow(
+            today: today,
+            monthCount: monthCount,
+            isExtraLarge: family == .systemExtraLarge
+        )
     }
 
     var body: some View {
