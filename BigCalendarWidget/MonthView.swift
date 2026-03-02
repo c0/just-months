@@ -1,5 +1,13 @@
 import SwiftUI
 
+// MARK: - Calendar Cell Model
+
+fileprivate struct CalendarCell: Identifiable {
+    let id: Int          // 0..<42, unique per month instance
+    let date: Date
+    let isCurrentMonth: Bool
+}
+
 // MARK: - Month View
 
 struct MonthView: View {
@@ -8,109 +16,84 @@ struct MonthView: View {
 
     private let calendar = Calendar.current
 
-    private var sevenColumns: [GridItem] {
-        Array(repeating: GridItem(.flexible(), spacing: 1), count: 7)
-    }
-
     private var headerText: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM yyyy"
-        return formatter.string(from: month).uppercased()
+        return formatter.string(from: month)
     }
 
-    private var firstWeekdayOffset: Int {
-        let components = calendar.dateComponents([.year, .month], from: month)
-        let firstDay = calendar.date(from: components)!
-        // weekday: 1 = Sunday ... 7 = Saturday
-        return calendar.component(.weekday, from: firstDay) - 1
-    }
-
-    private var daysInMonth: [Date] {
-        let range = calendar.range(of: .day, in: .month, for: month)!
-        let components = calendar.dateComponents([.year, .month], from: month)
-        return range.compactMap { day -> Date? in
-            var dc = components
-            dc.day = day
-            return calendar.date(from: dc)
+    private var calendarCells: [CalendarCell] {
+        let comps = calendar.dateComponents([.year, .month], from: month)
+        let firstDay = calendar.date(from: comps)!
+        let offset = calendar.component(.weekday, from: firstDay) - 1  // 0=Sun
+        return (0..<42).map { i in
+            let date = calendar.date(byAdding: .day, value: i - offset, to: firstDay)!
+            let inMonth = calendar.component(.month, from: date) == comps.month!
+            return CalendarCell(id: i, date: date, isCurrentMonth: inMonth)
         }
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            // Month header: "FEBRUARY 2026"
+            // Month header: "March 2026"
             Text(headerText)
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundStyle(.secondary)
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .infinity, alignment: .center)
 
             // Day-of-week headers: S M T W T F S
             let dayLabels = ["S", "M", "T", "W", "T", "F", "S"]
             HStack(spacing: 0) {
                 ForEach(dayLabels.indices, id: \.self) { i in
                     Text(dayLabels[i])
-                        .font(.system(size: 9))
+                        .font(.system(size: 10))
                         .foregroundStyle(.tertiary)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
 
-            // Date grid
-            LazyVGrid(columns: sevenColumns, spacing: 1) {
-                // Empty cells before first day
-                ForEach(0..<firstWeekdayOffset, id: \.self) { _ in
-                    Color.clear
-                        .frame(minHeight: 20)
-                }
-                // Day cells
-                ForEach(daysInMonth, id: \.self) { day in
-                    DayCell(
-                        day: day,
-                        isToday: isSameDay(day, today),
-                        isPast: isPastDay(day, today)
-                    )
+            // Date grid: 6 rows × 7 cols
+            VStack(spacing: 2) {
+                ForEach(0..<6, id: \.self) { row in
+                    HStack(spacing: 0) {
+                        ForEach(0..<7, id: \.self) { col in
+                            DayCell(cell: calendarCells[row * 7 + col], today: today)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
                 }
             }
         }
-    }
-
-    private func isSameDay(_ a: Date, _ b: Date) -> Bool {
-        calendar.isDate(a, inSameDayAs: b)
-    }
-
-    private func isPastDay(_ day: Date, _ ref: Date) -> Bool {
-        // A day is "past" if it's before today's date (not including today)
-        let dayStart = calendar.startOfDay(for: day)
-        let refStart = calendar.startOfDay(for: ref)
-        return dayStart < refStart
     }
 }
 
 // MARK: - Day Cell
 
 struct DayCell: View {
-    let day: Date
-    let isToday: Bool
-    let isPast: Bool
+    fileprivate let cell: CalendarCell
+    let today: Date
 
-    private var dayNumber: String {
-        let cal = Calendar.current
-        return "\(cal.component(.day, from: day))"
+    private let calendar = Calendar.current
+
+    var isToday: Bool { calendar.isDate(cell.date, inSameDayAs: today) }
+    var isPast: Bool {
+        calendar.startOfDay(for: cell.date) < calendar.startOfDay(for: today)
     }
 
     var body: some View {
-        Text(dayNumber)
+        Text("\(calendar.component(.day, from: cell.date))")
             .font(.system(size: 13, weight: isToday ? .bold : .regular))
-            .foregroundStyle(
-                isToday
-                    ? Color.white
-                    : (isPast ? Color.secondary.opacity(0.5) : Color.primary)
-            )
-            .frame(maxWidth: .infinity, minHeight: 20)
+            .foregroundStyle(foregroundColor)
+            .frame(maxWidth: .infinity, minHeight: 22)
             .background {
-                if isToday {
-                    Circle()
-                        .fill(Color.accentColor)
-                        .padding(1)
-                }
+                if isToday { Circle().fill(Color.accentColor).padding(1) }
             }
+    }
+
+    var foregroundColor: Color {
+        if isToday { return .white }
+        if !cell.isCurrentMonth { return Color.primary.opacity(0.25) }
+        if isPast { return Color.primary.opacity(0.45) }
+        return .primary
     }
 }

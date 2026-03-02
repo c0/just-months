@@ -38,40 +38,52 @@ struct BigCalendarView: View {
     var monthCount: Int {
         switch family {
         case .systemExtraLarge: return 6
-        default: return 3
+        default: return 4
         }
     }
 
-    var columns: Int { 3 }
+    var columns: Int {
+        switch family {
+        case .systemExtraLarge: return 3
+        default: return 2
+        }
+    }
+
     var rows: Int { monthCount / columns }
 
     var today: Date { entry.date }
 
     var monthsToShow: [Date] {
-        let lookback = Calendar.current.date(byAdding: .day, value: -14, to: today)!
-        let startMonth = Calendar.current.date(
-            from: Calendar.current.dateComponents([.year, .month], from: lookback)
-        )!
+        let start: Date
+        switch family {
+        case .systemExtraLarge:
+            let lookback = Calendar.current.date(byAdding: .day, value: -14, to: today)!
+            start = Calendar.current.date(
+                from: Calendar.current.dateComponents([.year, .month], from: lookback))!
+        default:
+            start = Calendar.current.date(
+                from: Calendar.current.dateComponents([.year, .month], from: today))!
+        }
         return (0..<monthCount).compactMap {
-            Calendar.current.date(byAdding: .month, value: $0, to: startMonth)
+            Calendar.current.date(byAdding: .month, value: $0, to: start)
         }
     }
 
     var body: some View {
-        VStack(spacing: 12) {
-            ForEach(0..<rows, id: \.self) { row in
-                HStack(spacing: 16) {
-                    ForEach(0..<columns, id: \.self) { col in
-                        let index = row * columns + col
+        HStack(alignment: .top, spacing: 12) {
+            ForEach(0..<columns, id: \.self) { col in
+                VStack(spacing: 12) {
+                    ForEach(0..<rows, id: \.self) { row in
+                        let index = row + col * rows
                         if index < monthsToShow.count {
                             MonthView(month: monthsToShow[index], today: today)
-                                .frame(maxWidth: .infinity)
                         }
                     }
                 }
+                .frame(maxWidth: .infinity)
             }
         }
-        .padding(16)
+        .padding(12)
         .containerBackground(.fill.tertiary, for: .widget)
     }
 }
