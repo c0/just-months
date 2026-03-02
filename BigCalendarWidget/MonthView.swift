@@ -84,7 +84,7 @@ struct DayCell: View {
         Text("\(calendar.component(.day, from: cell.date))")
             .font(.system(size: 13, weight: isToday ? .bold : .regular))
             .foregroundStyle(foregroundColor)
-            .frame(maxWidth: .infinity, minHeight: 22)
+            .frame(maxWidth: .infinity, minHeight: 18)
             .background {
                 if isToday { Circle().fill(Color.accentColor).padding(1) }
             }

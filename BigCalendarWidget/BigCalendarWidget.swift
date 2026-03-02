@@ -70,7 +70,7 @@ struct BigCalendarView: View {
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: 6) {
             ForEach(0..<columns, id: \.self) { col in
                 VStack(spacing: 12) {
                     ForEach(0..<rows, id: \.self) { row in
@@ -83,7 +83,7 @@ struct BigCalendarView: View {
                 .frame(maxWidth: .infinity)
             }
         }
-        .padding(12)
+        .padding(6)
         .containerBackground(.fill.tertiary, for: .widget)
     }
 }
