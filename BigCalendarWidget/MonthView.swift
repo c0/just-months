@@ -1,13 +1,5 @@
 import SwiftUI
 
-// MARK: - Calendar Cell Model
-
-fileprivate struct CalendarCell: Identifiable {
-    let id: Int          // 0..<42, unique per month instance
-    let date: Date
-    let isCurrentMonth: Bool
-}
-
 // MARK: - Month View
 
 struct MonthView: View {
@@ -23,14 +15,7 @@ struct MonthView: View {
     }
 
     private var calendarCells: [CalendarCell] {
-        let comps = calendar.dateComponents([.year, .month], from: month)
-        let firstDay = calendar.date(from: comps)!
-        let offset = calendar.component(.weekday, from: firstDay) - 1  // 0=Sun
-        return (0..<42).map { i in
-            let date = calendar.date(byAdding: .day, value: i - offset, to: firstDay)!
-            let inMonth = calendar.component(.month, from: date) == comps.month!
-            return CalendarCell(id: i, date: date, isCurrentMonth: inMonth)
-        }
+        CalendarLogic.calendarCells(for: month, calendar: calendar)
     }
 
     var body: some View {
@@ -70,15 +55,13 @@ struct MonthView: View {
 // MARK: - Day Cell
 
 struct DayCell: View {
-    fileprivate let cell: CalendarCell
+    let cell: CalendarCell
     let today: Date
 
     private let calendar = Calendar.current
 
-    var isToday: Bool { calendar.isDate(cell.date, inSameDayAs: today) }
-    var isPast: Bool {
-        calendar.startOfDay(for: cell.date) < calendar.startOfDay(for: today)
-    }
+    var isToday: Bool { CalendarLogic.isToday(cell.date, today: today, calendar: calendar) }
+    var isPast: Bool { CalendarLogic.isPast(cell.date, today: today, calendar: calendar) }
 
     var body: some View {
         Text("\(calendar.component(.day, from: cell.date))")
