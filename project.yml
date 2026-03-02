@@ -15,6 +15,11 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app
         SWIFT_VERSION: "5.0"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+    entitlements:
+      path: BigCalendar/BigCalendar.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
     info:
       path: BigCalendar/Info.plist
       properties:
@@ -38,6 +43,11 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigcalendar.app.widget
         SWIFT_VERSION: "5.0"
         APPLICATION_EXTENSION_API_ONLY: true
+        CODE_SIGN_STYLE: Automatic
+    entitlements:
+      path: BigCalendarWidget/BigCalendarWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
     dependencies:
       - sdk: WidgetKit.framework
       - sdk: SwiftUI.framework
