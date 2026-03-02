@@ -28,6 +28,10 @@ targets:
         LSMinimumSystemVersion: "14.0"
         NSPrincipalClass: NSApplication
         NSHighResolutionCapable: true
+        CFBundleURLTypes:
+          - CFBundleURLName: com.bigcalendar.open
+            CFBundleURLSchemes:
+              - bigcalendar
     dependencies:
       - target: BigCalendarWidget
         embed: true

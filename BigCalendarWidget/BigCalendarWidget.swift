@@ -84,6 +84,7 @@ struct BigCalendarView: View {
             }
         }
         .padding(6)
+        .widgetURL(URL(string: "bigcalendar://open")!)
         .containerBackground(.fill.tertiary, for: .widget)
     }
 }
