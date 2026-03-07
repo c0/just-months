@@ -66,7 +66,7 @@ struct BigCalendarView: View {
             ForEach(0..<columns, id: \.self) { col in
                 VStack(spacing: 12) {
                     ForEach(0..<rows, id: \.self) { row in
-                        let index = row + col * rows
+                        let index = col + row * columns
                         if index < monthsToShow.count {
                             MonthView(month: monthsToShow[index], today: today)
                         }
