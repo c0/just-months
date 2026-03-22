@@ -9,22 +9,20 @@
 <p align="center">
   <a href="https://github.com/c0/just-months/releases/latest">Download</a>
   &nbsp;·&nbsp;
-  <a href="https://justmonths.app">justmonths.app</a>
+  <a href="https://c0.github.io/just-months">c0.github.io/just-months</a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="site/public/screenshot.png" alt="Just Months widget screenshot" width="640" />
+  <img src="site/public/screenshot-notification-center.png" alt="Just Months widget screenshot" width="640" />
 </p>
 
 ## Features
 
-- Three months at a glance — previous, current, next
-- Today highlighted with a coral block cursor
-- Click the widget to open your calendar app of choice
-- WidgetKit native — lives in Notification Center
-- Retro terminal aesthetic: monospace, dark navy, cyan phosphor
+- View 4-6 months at a time without clicking arrows!
+- Tap the widget to open Google Calendar, Apple Calendar, or Outlook
+- Put on your desktop or in the Notification Center
 - Auto-updates via Sparkle
 - Light and dark mode
 
