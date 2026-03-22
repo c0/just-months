@@ -26,7 +26,8 @@
       "Bash(npm install:*)",
       "Bash(npm run:*)",
       "Bash(open:*)",
-      "Bash(make:*)"
+      "Bash(make:*)",
+      "Bash(bash scripts/release.sh 1.0.0 2>&1)"
     ]
   }
 }
