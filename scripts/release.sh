@@ -116,7 +116,7 @@ xcodebuild -exportArchive \
   -exportPath "$EXPORT_DIR" \
   -exportOptionsPlist "$EXPORT_OPTIONS"
 
-APP_PATH="$EXPORT_DIR/JustMonths.app"
+APP_PATH="$EXPORT_DIR/Just Months.app"
 if [ ! -d "$APP_PATH" ]; then
   echo "ERROR: Exported app not found at $APP_PATH"
   exit 1
@@ -130,7 +130,7 @@ DMG_TMP="$BUILD_DIR/JustMonths-tmp.dmg"
 rm -rf "$DMG_STAGING" "$DMG_TMP"
 mkdir -p "$DMG_STAGING"
 
-ditto "$APP_PATH" "$DMG_STAGING/JustMonths.app"
+ditto "$APP_PATH" "$DMG_STAGING/Just Months.app"
 ln -s /Applications "$DMG_STAGING/Applications"
 
 HDIUTIL_ARGS=()
@@ -170,7 +170,7 @@ tell application "Finder"
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 128
     $APPLESCRIPT_BG
-    set position of item "JustMonths.app" of container window to {130, 170}
+    set position of item "Just Months.app" of container window to {130, 170}
     set position of item "Applications" of container window to {390, 170}
     close
     open

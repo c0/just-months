@@ -23,6 +23,7 @@ targets:
       - Shared/
     settings:
       base:
+        PRODUCT_NAME: "Just Months"
         PRODUCT_BUNDLE_IDENTIFIER: com.justmonths.app
         SWIFT_VERSION: "5.0"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
