@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://justmonths.app",
+  site: "https://c0.github.io",
+  base: "/just-months",
 });

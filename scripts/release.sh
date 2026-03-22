@@ -141,6 +141,7 @@ hdiutil create \
   "$DMG_TMP"
 
 MOUNT_DIR="/Volumes/JustMonths"
+hdiutil detach -force "$MOUNT_DIR" 2>/dev/null || true
 hdiutil attach -readwrite -noverify -noautoopen -mountpoint "$MOUNT_DIR" "$DMG_TMP"
 
 # Finder layout via AppleScript
