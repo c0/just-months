@@ -205,7 +205,13 @@ echo "▶ Generating appcast..."
 APPCAST_DIR="$REPO_ROOT/site/public"
 mkdir -p "$APPCAST_DIR"
 
-generate_appcast \
+GENERATE_APPCAST="$(find ~/Library/Developer/Xcode/DerivedData -path "*/artifacts/sparkle/Sparkle/bin/generate_appcast" 2>/dev/null | head -1)"
+if [ -z "$GENERATE_APPCAST" ]; then
+  echo "ERROR: generate_appcast not found in Xcode DerivedData. Build the project in Xcode first to resolve Sparkle package."
+  exit 1
+fi
+
+"$GENERATE_APPCAST" \
   --ed-key-file "$HOME/.sparkle_keys/private-key" \
   --download-url-prefix "https://github.com/c0/just-months/releases/download/v${VERSION}/" \
   "$BUILD_DIR" \

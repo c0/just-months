@@ -50,7 +50,7 @@ targets:
         NSPrincipalClass: NSApplication
         NSHighResolutionCapable: true
         SUFeedURL: "https://justmonths.app/appcast.xml"
-        SUPublicEDKey: "PLACEHOLDER_REPLACE_AT_FIRST_RELEASE"
+        SUPublicEDKey: "Gy8InhQYadNjyHla33AqodprTnKQylCBchxPttBeUYo="
     dependencies:
       - target: JustMonthsWidget
         embed: true
