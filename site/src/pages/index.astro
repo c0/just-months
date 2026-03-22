@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import heroImage from "../../public/hero.png";
 import screenshotNotificationCenter from "../../public/screenshot-notification-center.png";
 import screenshotDesktop from "../../public/screenshot-desktop.png";
 
@@ -19,7 +20,7 @@ const FEATURES = [
 <Layout>
   <main>
     <div class="hero">
-      <img src="/hero.png" alt="Just Months" class="hero-image" />
+      <Image src={heroImage} alt="Just Months" class="hero-image" />
       <h1>Just Months</h1>
       <p class="tagline">A monthly calendar and no extras.</p>
       <p class="description">
