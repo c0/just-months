@@ -140,7 +140,8 @@ hdiutil create \
   -size 80m \
   "$DMG_TMP"
 
-MOUNT_DIR="$(hdiutil attach -readwrite -noverify -noautoopen "$DMG_TMP" | grep 'Volumes' | awk '{print $NF}')"
+MOUNT_DIR="/Volumes/JustMonths"
+hdiutil attach -readwrite -noverify -noautoopen -mountpoint "$MOUNT_DIR" "$DMG_TMP"
 
 # Finder layout via AppleScript
 APPLESCRIPT_BG=""
