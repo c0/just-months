@@ -6,7 +6,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard urls.contains(where: { $0.scheme == "justmonths" }) else { return }
         let destStr = UserDefaults.standard.string(forKey: "calendarDestination") ?? "google"
         let dest = CalendarDestination(rawValue: destStr) ?? .google
-        NSWorkspace.shared.open(dest.url)
+        if dest == .apple {
+            // calshow:// is iOS-only; open Calendar.app by bundle ID on macOS
+            if let calendarAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.iCal") {
+                NSWorkspace.shared.open(calendarAppURL)
+            }
+        } else {
+            NSWorkspace.shared.open(dest.url)
+        }
     }
 }
 
