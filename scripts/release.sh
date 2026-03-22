@@ -17,6 +17,12 @@ source .env
 : "${APPLE_ID:?ERROR: APPLE_ID not set in .env}"
 : "${SIGNING_IDENTITY_NAME:?ERROR: SIGNING_IDENTITY_NAME not set in .env}"
 
+# Verify gh CLI is available
+if ! command -v gh &>/dev/null; then
+  echo "ERROR: gh CLI not found. Install with: brew install gh && gh auth login"
+  exit 1
+fi
+
 # Branch must be main
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if [ "$CURRENT_BRANCH" != "main" ]; then
