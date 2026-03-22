@@ -73,6 +73,8 @@ DMG_NAME="JustMonths-${VERSION}.dmg"
 DMG_PATH="$BUILD_DIR/$DMG_NAME"
 
 mkdir -p "$BUILD_DIR"
+# Clean stale artifacts from any previous failed run
+rm -rf "$ARCHIVE_PATH" "$EXPORT_DIR" "$DMG_PATH"
 
 # ── 3. xcodegen generate ─────────────────────────────────────────────────────
 
@@ -87,7 +89,9 @@ xcodebuild archive \
   -scheme JustMonths \
   -configuration Release \
   -archivePath "$ARCHIVE_PATH" \
+  CODE_SIGN_IDENTITY="$SIGNING_IDENTITY_NAME" \
   DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+  CODE_SIGN_STYLE=Manual \
   | xcpretty 2>/dev/null || true
 
 if [ ! -d "$ARCHIVE_PATH" ]; then
