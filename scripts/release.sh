@@ -87,9 +87,7 @@ xcodebuild archive \
   -scheme JustMonths \
   -configuration Release \
   -archivePath "$ARCHIVE_PATH" \
-  CODE_SIGN_IDENTITY="$SIGNING_IDENTITY_NAME" \
   DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
-  CODE_SIGN_STYLE=Manual \
   | xcpretty 2>/dev/null || true
 
 if [ ! -d "$ARCHIVE_PATH" ]; then
