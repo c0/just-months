@@ -171,7 +171,7 @@ tell application "Finder"
 end tell
 EOF
 
-hdiutil detach "$MOUNT_DIR"
+hdiutil detach -force "$MOUNT_DIR"
 hdiutil convert "$DMG_TMP" -format UDZO -imagekey zlib-level=9 -o "$DMG_PATH"
 rm -f "$DMG_TMP"
 rm -rf "$DMG_STAGING"
