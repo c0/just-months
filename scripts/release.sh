@@ -212,10 +212,9 @@ if [ -z "$GENERATE_APPCAST" ]; then
 fi
 
 "$GENERATE_APPCAST" \
-  --ed-key-file "$HOME/.sparkle_keys/private-key" \
   --download-url-prefix "https://github.com/c0/just-months/releases/download/v${VERSION}/" \
-  "$BUILD_DIR" \
-  --output "$APPCAST_DIR/appcast.xml"
+  -o "$APPCAST_DIR/appcast.xml" \
+  "$BUILD_DIR"
 
 git add "$APPCAST_DIR/appcast.xml"
 git commit -m "chore: update appcast for v${VERSION}"
