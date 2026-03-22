@@ -119,7 +119,7 @@ fi
 echo "▶ Creating DMG..."
 DMG_STAGING="$BUILD_DIR/dmg-staging"
 DMG_TMP="$BUILD_DIR/JustMonths-tmp.dmg"
-rm -rf "$DMG_STAGING"
+rm -rf "$DMG_STAGING" "$DMG_TMP"
 mkdir -p "$DMG_STAGING"
 
 cp -r "$APP_PATH" "$DMG_STAGING/"
