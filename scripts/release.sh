@@ -143,6 +143,11 @@ hdiutil create \
 MOUNT_DIR="$(hdiutil attach -readwrite -noverify -noautoopen "$DMG_TMP" | grep 'Volumes' | awk '{print $NF}')"
 
 # Finder layout via AppleScript
+APPLESCRIPT_BG=""
+if [ -f "$REPO_ROOT/scripts/dmg-background.png" ]; then
+  APPLESCRIPT_BG='set background picture of viewOptions to file ".background:background.png"'
+fi
+
 osascript <<EOF
 tell application "Finder"
   tell disk "JustMonths"
@@ -154,15 +159,7 @@ tell application "Finder"
     set viewOptions to the icon view options of container window
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 128
-EOF
-
-if [ -f "$REPO_ROOT/scripts/dmg-background.png" ]; then
-osascript <<EOF
-    set background picture of viewOptions to file ".background:background.png"
-EOF
-fi
-
-osascript <<EOF
+    $APPLESCRIPT_BG
     set position of item "JustMonths.app" of container window to {130, 170}
     set position of item "Applications" of container window to {390, 170}
     close
