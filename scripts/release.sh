@@ -124,7 +124,7 @@ DMG_TMP="$BUILD_DIR/JustMonths-tmp.dmg"
 rm -rf "$DMG_STAGING" "$DMG_TMP"
 mkdir -p "$DMG_STAGING"
 
-cp -r "$APP_PATH" "$DMG_STAGING/"
+ditto "$APP_PATH" "$DMG_STAGING/JustMonths.app"
 ln -s /Applications "$DMG_STAGING/Applications"
 
 HDIUTIL_ARGS=()
