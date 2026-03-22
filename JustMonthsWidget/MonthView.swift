@@ -72,6 +72,7 @@ struct MonthView: View {
 struct DayCell: View {
     fileprivate let cell: CalendarCell
     let today: Date
+    @Environment(\.widgetRenderingMode) var renderingMode
 
     private let calendar = Calendar.current
 
@@ -82,11 +83,14 @@ struct DayCell: View {
 
     var body: some View {
         Text("\(calendar.component(.day, from: cell.date))")
-            .font(.system(size: 11, design: .monospaced))
+            .font(.system(size: 11, weight: isToday ? .bold : .regular, design: .monospaced))
             .foregroundStyle(foregroundColor)
             .frame(maxWidth: .infinity, minHeight: 18)
             .background {
-                if isToday {
+                // In vibrant rendering mode (macOS desktop), colors are mapped by luminance.
+                // Coral has high luminance and renders as near-white, making the number invisible.
+                // Bold text alone marks today reliably in that context.
+                if isToday && renderingMode != .vibrant {
                     Rectangle().fill(Color("TodayAccent")).padding(1)
                 }
             }
