@@ -82,7 +82,10 @@ mkdir -p "$BUILD_DIR"
 # Clean stale artifacts from any previous failed run
 rm -rf "$ARCHIVE_PATH" "$EXPORT_DIR" "$DMG_PATH"
 
-# ── 3. xcodegen generate ─────────────────────────────────────────────────────
+# ── 3. Bump MARKETING_VERSION + xcodegen generate ────────────────────────────
+
+echo "▶ Bumping MARKETING_VERSION to ${VERSION}..."
+sed -i '' "s/MARKETING_VERSION: \"[^\"]*\"/MARKETING_VERSION: \"${VERSION}\"/" project.yml
 
 echo "▶ Generating Xcode project..."
 xcodegen generate

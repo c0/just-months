@@ -11,7 +11,7 @@
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/c0/just-months/releases/download/v1.0.0/JustMonths-1.0.0.dmg" length="998409" type="application/octet-stream" sparkle:edSignature="8I7AD5d/Nn4EnS/q7UUGM2Q0SGshy1nutYUDXxhSXYZLvXc/y7q6KNU8waz8iH7YSXAyS1pz92mmv+2lRG3/AA=="/>
+            <enclosure url="https://github.com/c0/just-months/releases/download/v1.0.1/JustMonths-1.0.1.dmg" length="1002417" type="application/octet-stream" sparkle:edSignature="k5BHHymCyqSq2UA86GG9V4NNE5IWfkCC2narsq1x3m6f6d943/HC0xWd9dwK5Tar453srMJGgbhIfv38lX/7AQ=="/>
         </item>
     </channel>
 </rss>
