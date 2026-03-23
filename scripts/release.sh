@@ -232,7 +232,7 @@ fi
   -o "$APPCAST_DIR/appcast.xml" \
   "$BUILD_DIR"
 
-git add "$APPCAST_DIR/appcast.xml"
+git add "$APPCAST_DIR/appcast.xml" project.yml JustMonths.xcodeproj/project.pbxproj
 git commit -m "chore: update appcast for v${VERSION}"
 git push origin main
 
