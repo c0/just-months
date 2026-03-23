@@ -27,7 +27,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://justmonths.app/appcast.xml</string>
+	<string>https://c0.github.io/just-months/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>Gy8InhQYadNjyHla33AqodprTnKQylCBchxPttBeUYo=</string>
 </dict>

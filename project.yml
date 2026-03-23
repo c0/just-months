@@ -50,7 +50,7 @@ targets:
         LSMinimumSystemVersion: "14.0"
         NSPrincipalClass: NSApplication
         NSHighResolutionCapable: true
-        SUFeedURL: "https://justmonths.app/appcast.xml"
+        SUFeedURL: "https://c0.github.io/just-months/appcast.xml"
         SUPublicEDKey: "Gy8InhQYadNjyHla33AqodprTnKQylCBchxPttBeUYo="
     dependencies:
       - target: JustMonthsWidget

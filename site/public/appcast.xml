@@ -2,7 +2,7 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Just Months</title>
-        <link>https://justmonths.app/appcast.xml</link>
+        <link>https://c0.github.io/just-months/appcast.xml</link>
         <description>Just Months update feed</description>
         <language>en</language>
         <item>
