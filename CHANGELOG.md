@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-03-23
+
+### Fixed
+- Auto-update now works correctly (the update feed URL was pointing to the wrong address)
+- Installer disk image uses a smaller, cleaner drag arrow
+
 ## [1.0.1] - 2026-03-23
 
 ### Changed
