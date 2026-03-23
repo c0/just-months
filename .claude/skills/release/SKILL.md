@@ -100,6 +100,8 @@ bash scripts/release.sh <VERSION>
 
 This handles: xcodegen → archive → export → DMG → notarize → staple → git tag → appcast → GitHub Release.
 
+The script automatically bumps both `MARKETING_VERSION` (e.g. `1.0.2`) and `CURRENT_PROJECT_VERSION` (the build number Sparkle uses for update comparisons) in `project.yml`. Never skip or manually set these — the script increments the build number so Sparkle can detect the update.
+
 Let it run to completion. If it fails, report the error output to the user and stop. Do NOT retry automatically.
 
 ### Step 8: Report

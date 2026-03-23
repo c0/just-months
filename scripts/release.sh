@@ -82,10 +82,15 @@ mkdir -p "$BUILD_DIR"
 # Clean stale artifacts from any previous failed run
 rm -rf "$ARCHIVE_PATH" "$EXPORT_DIR" "$DMG_PATH"
 
-# ── 3. Bump MARKETING_VERSION + xcodegen generate ────────────────────────────
+# ── 3. Bump MARKETING_VERSION + CURRENT_PROJECT_VERSION + xcodegen generate ──
 
 echo "▶ Bumping MARKETING_VERSION to ${VERSION}..."
 sed -i '' "s/MARKETING_VERSION: \"[^\"]*\"/MARKETING_VERSION: \"${VERSION}\"/" project.yml
+
+CURRENT_BUILD="$(grep 'CURRENT_PROJECT_VERSION:' project.yml | head -1 | grep -o '"[0-9]*"' | tr -d '"')"
+NEXT_BUILD="$((CURRENT_BUILD + 1))"
+echo "▶ Bumping CURRENT_PROJECT_VERSION to ${NEXT_BUILD}..."
+sed -i '' "s/CURRENT_PROJECT_VERSION: \"[^\"]*\"/CURRENT_PROJECT_VERSION: \"${NEXT_BUILD}\"/" project.yml
 
 echo "▶ Generating Xcode project..."
 xcodegen generate
@@ -213,6 +218,8 @@ git push origin "v${VERSION}"
 echo "▶ Generating appcast..."
 APPCAST_DIR="$REPO_ROOT/site/public"
 mkdir -p "$APPCAST_DIR"
+# Remove any older DMGs so generate_appcast doesn't error on duplicate bundle versions
+find "$BUILD_DIR" -maxdepth 1 -name "*.dmg" ! -name "$DMG_NAME" -delete
 
 GENERATE_APPCAST="$(find ~/Library/Developer/Xcode/DerivedData -path "*/artifacts/sparkle/Sparkle/bin/generate_appcast" 2>/dev/null | head -1)"
 if [ -z "$GENERATE_APPCAST" ]; then
