@@ -6,6 +6,14 @@
         <description>Just Months update feed</description>
         <language>en</language>
         <item>
+            <title>1.0.6</title>
+            <pubDate>Mon, 23 Mar 2026 21:26:53 -0400</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/c0/just-months/releases/download/v1.0.6/JustMonths-1.0.6.dmg" length="1003589" type="application/octet-stream" sparkle:edSignature="v2iEnDtisMjZyBaS99MJctx54/8fGbSN+kiNfyBn4HJMwpOx6s8PT04bevthnQhW3X3BGHjD2uej9FcMOskYBA=="/>
+        </item>
+        <item>
             <title>1.0.5</title>
             <pubDate>Mon, 23 Mar 2026 21:22:52 -0400</pubDate>
             <sparkle:version>5</sparkle:version>
@@ -20,14 +28,6 @@
             <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/c0/just-months/releases/download/v1.0.4/JustMonths-1.0.4.dmg" length="1003501" type="application/octet-stream" sparkle:edSignature="FJIi3a+yKibHgmv+6sOpZBHeTU30zmPionQBiitPoUVFOwvI/IkrhFycCjnRhQMhdaTNezk53R+3483wHcB4Ag=="/>
-        </item>
-        <item>
-            <title>1.0</title>
-            <pubDate>Sun, 22 Mar 2026 12:16:46 -0400</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/c0/just-months/releases/download/v1.0.3/JustMonths-1.0.3.dmg" length="1002441" type="application/octet-stream" sparkle:edSignature="YmL6C70Gnb38Ksm//ItqW5+setvhEXd4YFjzhT6O3oq7/nBHOEaxXiIlDIc6HzIR9J8hHFCeJb3IuekDBDP/CA=="/>
         </item>
     </channel>
 </rss>
