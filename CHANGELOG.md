@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-03-23
+
+### Fixed
+- Version number now displays correctly in system settings and update dialogs
+- Installer drag arrow is centered between the app and Applications folder
+
 ## [1.0.3] - 2026-03-23
 
 ### Fixed
