@@ -47,6 +47,8 @@ targets:
       properties:
         CFBundleName: JustMonths
         CFBundleDisplayName: Just Months
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSMinimumSystemVersion: "14.0"
         NSPrincipalClass: NSApplication
         NSHighResolutionCapable: true
