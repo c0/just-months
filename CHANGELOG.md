@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.7] - 2026-04-30
+
+### Fixed
+- Today is now highlighted only in the actual current month, not in adjacent month preview cells
+
 ## [1.0.6] - 2026-03-23
 
 ### Fixed
