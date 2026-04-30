@@ -29,7 +29,8 @@ struct MonthView: View {
         let offset = calendar.component(.weekday, from: firstDay) - 1  // 0=Sun
         return (0..<42).map { i in
             let date = calendar.date(byAdding: .day, value: i - offset, to: firstDay)!
-            let inMonth = calendar.component(.month, from: date) == comps.month!
+            let dateComps = calendar.dateComponents([.year, .month], from: date)
+            let inMonth = dateComps.year == comps.year && dateComps.month == comps.month
             return CalendarCell(id: i, date: date, isCurrentMonth: inMonth)
         }
     }
@@ -77,7 +78,9 @@ struct DayCell: View {
 
     private let calendar = Calendar.current
 
-    var isToday: Bool { calendar.isDate(cell.date, inSameDayAs: today) }
+    var isToday: Bool {
+        cell.isCurrentMonth && calendar.isDate(cell.date, inSameDayAs: today)
+    }
     var isPast: Bool {
         calendar.startOfDay(for: cell.date) < calendar.startOfDay(for: today)
     }
